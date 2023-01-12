@@ -1,25 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from 'react';
+import { Route, Routes } from 'react-router-dom';
+import { ToastContainer } from 'react-toastify';
+import { NotFound } from './components/NotFound';
+import { Recipes } from './components/Recipes';
+import TopBar from './components/topBar';
+import RecipeForm from './components/recipeForm';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component {
+  render() { 
+    return (
+      <div>
+        <ToastContainer />
+        <TopBar />
+        <main className='container'>
+          <Routes>
+            <Route path='/recipes/new' element={<RecipeForm />}/>
+            <Route path='/recipes' element={<Recipes/>} />
+            <Route path='/' element={<NotFound/>} />
+          </Routes>
+        </main>
+      </div>
+    );
+  }
 }
-
+ 
 export default App;
