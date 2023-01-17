@@ -13,8 +13,8 @@ class recipeForm extends Form {
         data: {
             name: "",
             yield: "",
-            ingredients: [],
-            directions: []
+            ingredients: "",
+            directions: ""
         },
         errors: {},
     }
@@ -23,18 +23,20 @@ class recipeForm extends Form {
         _id: Joi.string(),
         name: Joi.string(),
         yield: Joi.number(),
-        ingredients: Joi.array(),
-        directions: Joi.array(),
+        ingredients: Joi.string(),
+        directions: Joi.string(),
     }
 
-    render() { 
+    render() {
         return (
             <div>
                 <h1 className='mb-3'>Recipe Form</h1>
                 <form onSubmit={this.handleSubmit}>
                     {this.renderInput("name", "Name")}
-                    {this.renderInput("yield", "Yield", "number")}
-                    {this.renderButton("Save")}
+                    {this.renderInput("yield", "Serves", "number")}
+                    {this.renderTextArea("ingredients", "Ingredients")}
+                    {this.renderTextArea("directions", "Directions")}
+                    {this.renderButton("Save", null)}
                 </form>
             </div>
         );

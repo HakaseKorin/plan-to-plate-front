@@ -7,6 +7,7 @@ import TopBar from './components/topBar';
 import RecipeForm from './components/recipeForm';
 import 'react-toastify/dist/ReactToastify.css'
 import './App.css';
+import Login from './components/login';
 
 class App extends Component {
   render() { 
@@ -16,6 +17,7 @@ class App extends Component {
         <TopBar />
         <main className='container'>
           <Routes>
+            <Route path='/login'element={<Login />} />
             <Route path='/recipes/new' element={<RecipeForm />}/>
             <Route path='/recipes' element={<Recipes/>} />
             <Route path='/' element={<NotFound/>} />

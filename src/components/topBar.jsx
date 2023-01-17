@@ -32,11 +32,13 @@ class TopBar extends Component {
 
                 <Offcanvas show={this.state.show} onHide={this.handleToggle}>
                     <Offcanvas.Header closeButton>
-                        <Offcanvas.Title>Offcanvas</Offcanvas.Title>
+                        <Offcanvas.Title>Navigation</Offcanvas.Title>
                     </Offcanvas.Header>
                     <Offcanvas.Body>
                         Some text as placeholder. In real life you can have the elements you
                         have chosen. Like, text, images, lists, etc.
+
+                        <Link to='/login'>Login</Link>
                     </Offcanvas.Body>
                 </Offcanvas>
             </React.Fragment>

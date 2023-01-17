@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import Joi from 'joi-browser';
 import Input from './input'
+import TextArea from './textarea';
+import Button from './button';
 
 class Form extends Component {
     constructor(props) {
@@ -17,11 +19,27 @@ class Form extends Component {
 
     // requires a valid schema to function
 
+    renderTextArea(name, label, rows=3) {
+        const {data, errors} = this.state
+
+        return (
+            <TextArea
+            name={name}
+            value={data[name]}
+            rows={rows}
+            label={label}
+            onChange={this.handleChange}
+            error={errors[name]}
+            />
+        )
+    }
+
     renderButton(label) {
         return (
             <button 
-            className="btn btn-primary"
+            className="btn btn-primary mx-3"
             disabled={this.validate()}
+            type="submit"
             >{label}
             </button>
         );
@@ -65,6 +83,7 @@ class Form extends Component {
     
     handleSubmit(e){
         e.preventDefault();
+        console.log("submitting")
 
         const errors = this.validate();
         this.setState({ errors: errors || {} });
