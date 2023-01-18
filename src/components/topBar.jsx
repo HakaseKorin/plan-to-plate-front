@@ -37,8 +37,12 @@ class TopBar extends Component {
                     <Offcanvas.Body>
                         Some text as placeholder. In real life you can have the elements you
                         have chosen. Like, text, images, lists, etc.
-
-                        <Link to='/login'>Login</Link>
+                        <div>
+                            <Link className='btn btn-primary my-3' to='/login'>Login</Link>
+                        </div>
+                        <div>
+                            <Link className='btn btn-primary my-3' to='/registration'>Register</Link>
+                        </div>
                     </Offcanvas.Body>
                 </Offcanvas>
             </React.Fragment>
