@@ -1,19 +1,21 @@
 import Form from './common/form';
 import Joi from 'joi-browser'
+import { login } from '../services/loginService'
 
 class Login extends Form {
     state = { 
-        data: { username: '', password: ''},
+        data: { email: '', password: ''},
         errors: {},
     } 
 
     schema = {
-        username: Joi.string().required().label("Username"),
+        email: Joi.string().required().label("Username"),
         password: Joi.string().required().label("Password"),
     };
 
-    doSubmit() {
-        console.log("Login Submitted");
+    async doSubmit() {
+        const res = await login(this.state.data);
+        console.log('doSubmit', res)
     }
 
     render() { 
@@ -21,7 +23,7 @@ class Login extends Form {
             <div>
                 <h1 className='mb-3'>Login</h1>
                 <form onSubmit={this.handleSubmit}>
-                    {this.renderInput('username', "Username")}
+                    {this.renderInput('email', "Username")}
                     {this.renderInput('password', "Password", "password")}
                     {this.renderButton("Login")}
                 </form>

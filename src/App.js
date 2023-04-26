@@ -9,6 +9,7 @@ import Registration from './components/registration';
 import 'react-toastify/dist/ReactToastify.css'
 import './App.css';
 import Recipes from './components/recipes';
+import { Landing } from './components/landing';
 
 class App extends Component {
   render() { 
@@ -22,7 +23,8 @@ class App extends Component {
             <Route path='/login' element={<Login />} />
             <Route path='/recipes/new' element={<RecipeForm />}/>
             <Route path='/recipes' element={<Recipes />} />
-            <Route path='/' element={<NotFound/>} />
+            <Route path='/' element={<Landing/> } />
+            <Route path='/*' element={<NotFound/>} />
           </Routes>
         </main>
       </div>
